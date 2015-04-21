@@ -20,10 +20,10 @@ public class Test implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_test", nullable=true, unique=true)
+	@Column(name="id_test", nullable=false, unique=true)
 	private Long id;
 	
-	@Column(name="nazwa", nullable=true)
+	@Column(name="nazwa", nullable=false)
 	private String name;
 
 	public Long getId() {

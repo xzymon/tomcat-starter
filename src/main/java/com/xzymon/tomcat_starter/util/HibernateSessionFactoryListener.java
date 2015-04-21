@@ -38,7 +38,7 @@ public class HibernateSessionFactoryListener implements ServletContextListener {
                 .buildSessionFactory(serviceRegistry);
         logger.info("SessionFactory created successfully");
          
-        event.getServletContext().setAttribute("SessionFactory", sessionFactory);
+        event.getServletContext().setAttribute(AppConstants.HIBERNATE_SESSION_FACTORY_ATTR_NAME, sessionFactory);
         logger.info("Hibernate SessionFactory Configured successfully");
 	}
 

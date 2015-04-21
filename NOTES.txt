@@ -1,0 +1,8 @@
+[0.0.2]
+Hibernate SessionFactory jest tworzony przez ServletContextListener i umieszczany jako atrybut w ServletContext
+
+[0.0.3]
+Hibernate wymaga dodania mapowań klas w pliku konfiguracyjnym hibernate.
+
+Wygląda na to, że żeby nie było błędu z przyklejaniem SessionFactory do JNDI, to:
+- w pliku konfiguracyjnym hibernate <session-factory> nie może mieć atrybutu name="" - musi go albo nie deklarować, albo deklarować z niepustą nazwą
