@@ -4,7 +4,7 @@
 	<groupId>com.xzymon</groupId>
 	<artifactId>tomcat-starter</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.4</version>
+	<version>0.0.5</version>
 	<name>tomcat-starter Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
@@ -26,10 +26,18 @@
 			<version>2.2.9</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet</artifactId>
 			<version>2.2.9.Final</version>
+			<scope>provided</scope>
+		</dependency>
+		 -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- <dependency> <groupId>org.jboss.weld.servlet</groupId> <artifactId>weld-tomcat-support</artifactId> 
@@ -93,10 +101,10 @@
 	</dependencies>
 	<build>
 		<finalName>tomcat-starter</finalName>
-		 <resources>
-    		<resource>
-      			<directory>src/main/resources</directory>
-      		</resource>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
 			<resource>
 				<directory>src/main/java</directory>
 				<includes>

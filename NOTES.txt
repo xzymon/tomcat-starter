@@ -6,3 +6,15 @@ Hibernate wymaga dodania mapowań klas w pliku konfiguracyjnym hibernate.
 
 Wygląda na to, że żeby nie było błędu z przyklejaniem SessionFactory do JNDI, to:
 - w pliku konfiguracyjnym hibernate <session-factory> nie może mieć atrybutu name="" - musi go albo nie deklarować, albo deklarować z niepustą nazwą
+
+[0.0.5]
+Przydaje się utworzenie klasy pomocniczej "Resources" na potrzeby produkcji następujących zasobów dla beanów:
+- FacesContext(.getCurrentInstance)
+- Logger
+Produkowanie org.hibernate.Session przez CDI trzeba zrobić w klasie innej niż "Resources" ponieważ 
+- obecnie SessionFactory jest tworzony przez ServletContextListener i umieszczane w atrybutach ServletContext
+- aby dobrać się do mapy atrybutów ServletContext, trzeba uzyskać FacesContext (przez wstrzyknięcie) i z niego dobrać się do applicationMap
+UWAGA: Bezpieczne posługiwanie się Session wymaga rozpoczynania/zatwierdzania transakcji oraz zamykania Session po użyciu (najpóźniej na koniec requesta)
+Można umieścić session.close() w @PreDestroy beana który go używa.
+
+TODO: Chyba trzebaby używać DAO.
