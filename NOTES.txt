@@ -17,4 +17,6 @@ Produkowanie org.hibernate.Session przez CDI trzeba zrobić w klasie innej niż 
 UWAGA: Bezpieczne posługiwanie się Session wymaga rozpoczynania/zatwierdzania transakcji oraz zamykania Session po użyciu (najpóźniej na koniec requesta)
 Można umieścić session.close() w @PreDestroy beana który go używa.
 
+UWAGA: Automatyczny deployment tej aplikacji przy starcie serwera nie powoduje odpowiedniej inicjalizacji WELD'a - co np. w wypadku odwołania do bean'a @RequestScoped powoduje błąd WELD-001303. W tej chwili aby uniknąć tego problemu trzeba każdorazowo wdrażać aplikację manualnie.
+
 TODO: Chyba trzebaby używać DAO.
